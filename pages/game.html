@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MageBonk - Jogo</title>
+    <link rel="stylesheet" href="../global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+
+    <div id="hud">
+      <h2>MageBonk</h2>
+      <p>⚔ Jogo em Desenvolvimento</p>
+    </div>
+
+    <button id="menu-button" onclick="window.location.href = '../index.html'">
+      ← Voltar ao Menu
+    </button>
+
+    <div id="crosshair"></div>
+
+    <div id="info">
+      <p>⌨️ WASD ou Setas - Mover</p>
+      <p>🖱️ Mouse - Olhar</p>
+      <p>ESC - Desbloquear Mouse</p>
+    </div>
+
+    <script type="module" src="../src/game.js"></script>
+  </body>
+</html>
