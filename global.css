@@ -368,15 +368,44 @@ body::before {
   height: 100vh;
 }
 
+/* barra de vida fixado no canto esquerdo superior */
+.barra-de-vida{
+    position: fixed;
+    top: 9%;
+    left: 7%;
+    transform: translateX(-50%);
+
+    width: 200px;
+    height: 20px;
+
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #222;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    z-index: 100;
+
+}
+
+/* Barra de vida interna */
+#barra-de-vida{
+    height: 100%;
+    width: 100%;    /* Começa cheia */
+    background: linear-gradient(90deg, #ff0000, #ff6a00);
+    transition: width 0.2s ease-in-out; /* animação suave */
+}
+
+
 #hud {
   position: fixed;
   top: 20px;
   left: 20px;
   color: #C5A45A;
   font-family: 'Cinzel', serif;
-  z-index: 100;
+  z-index: 50;
   background: rgba(27, 29, 31, 0.8);
-  padding: 20px 30px;
+  padding: 22px 50px 40px; /* padding: 20px 30px; */
   border: 2px solid #C5A45A;
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(197, 164, 90, 0.2);
@@ -460,6 +489,23 @@ body::before {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+#pergaminho-magico {
+    position: fixed;
+    bottom: 3%;
+    left: 47%;
+
+    z-index: 100;
+    pointer-events: none;  /* evita bloquear cliques no jogo */
+}
+
+#pergaminho-magico img {
+    width: 10%;
+    height: auto;
+    display: block;
+    
+}
+
 
 /* ===========================
    PÁGINA DE MAGOS

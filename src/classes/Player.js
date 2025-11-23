@@ -4,6 +4,12 @@ export class Player {
   constructor(inputManager) {
     this.inputManager = inputManager;
 
+    /* Pontos de Vida Maximo e Atual */
+    this.maxHP = 100;
+    this.currentHP = 100;
+    this.updateHealthBar();
+
+
     this.config = {
       moveSpeed: 0.15,
       gravity: 0.012,
@@ -178,4 +184,24 @@ export class Player {
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
   }
+
+  /* Modificadoes dos Pontos de Vida */
+updateHealthBar() {
+  const bar = document.getElementById("barra-de-vida");
+  if (!bar) return;
+  const pct = (this.currentHP / this.maxHP) * 100;
+  bar.style.width = pct + "%";
+}
+
+takeDamage(amount) {
+  this.currentHP = Math.max(0, this.currentHP - amount); // vida atual vai de 0 ao valor da vida atual - dano
+  this.updateHealthBar();
+}
+
+heal(amount) {
+  this.currentHP = Math.min(this.maxHP, this.currentHP + amount);
+  this.updateHealthBar();
+}
+
+
 }
