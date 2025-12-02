@@ -84,7 +84,43 @@ togglePause() {
             this.togglePause();
         }
     });
+    // Event Listener para perda de foco (mudança de aba ou minimização)
+    document.addEventListener('visibilitychange', () => this.handleFocusChange());
+    
+    //Event Listener para o clique fora da janela do navegador (opcional, use blur/focus)
+    window.addEventListener('blur', () => this.handleBlur());
+    window.addEventListener('focus', () => this.handleFocus());
   } 
+
+handleFocusChange() {
+    if (document.hidden) {
+        // Se a página não está visível, pausamos.
+        // O togglePause() só pausará se já não estiver pausado.
+        if (!this.isPaused) { 
+            this.togglePause();
+        }
+    } else {
+        // Se a página voltou a ficar visível, despausamos.
+        // O togglePause() só despausará se estiver pausado.
+        if (this.isPaused) {
+            this.togglePause();
+        }
+    }
+}
+
+handleBlur() {
+    // Perdeu o foco do navegador
+    if (!this.isPaused) {
+        this.togglePause();
+    }
+}
+
+handleFocus() {
+    if (this.isPaused) {
+      this.togglePause(); 
+    }
+}
+
   async setupAudio() {
     try {
       await this.audioManager.loadSound('walk', '/sounds/walking-on-grass.mp3');
