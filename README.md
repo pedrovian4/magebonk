@@ -1,41 +1,50 @@
 # MageBonk - Game Design Document
 
 ## Sumário
-
-1. [Visão Geral](#1-visão-geral)
-2. [Conceito do Jogo](#2-conceito-do-jogo)
-3. [Mecânicas de Jogo](#3-mecânicas-de-jogo)
-4. [Sistema de Feitiços](#4-sistema-de-feitiços)
-5. [Sistema de Inimigos](#5-sistema-de-inimigos)
-6. [Controles](#6-controles)
-7. [Interface do Usuário](#7-interface-do-usuário)
-8. [Arte e Estilo Visual](#8-arte-e-estilo-visual)
-9. [Áudio](#9-áudio)
-10. [Especificações Técnicas](#10-especificações-técnicas)
-11. [Roadmap de Desenvolvimento](#11-roadmap-de-desenvolvimento)
+1. [Integrantes](#1-integrantes)
+2. [Visão Geral](#2-visão-geral)
+3. [Conceito do Jogo](#3-conceito-do-jogo)
+4. [Mecânicas de Jogo](#4-mecânicas-de-jogo)
+5. [Sistema de Feitiços](#5-sistema-de-feitiços)
+6. [Sistema de Inimigos](#6-sistema-de-inimigos)
+7. [Controles](#7-controles)
+8. [Interface do Usuário](#8-interface-do-usuário)
+9. [Arte e Estilo Visual](#9-arte-e-estilo-visual)
+10. [Áudio](#10-áudio)
+11. [Especificações Técnicas](#11-especificações-técnicas)
+12. [Roadmap de Desenvolvimento](#12-roadmap-de-desenvolvimento)
 
 ---
 
-## 1. Visão Geral
+## 1. Integrantes
+       AUDREY REGISON DOS SANTOS CARDOSO
+       JOÃO PEDRO VIANA BEZERRA
+       LUCAS SANTOS PIMENTEL
+       LUÃ EURIQUI SANTOS GUERRA
+       THIAGO LOBATO RODRIGUES
 
-### 1.1 Título
+---
+
+## 2. Visão Geral
+
+### 2.1 Título
 **MageBonk**
 
-### 1.2 Gênero
+### 2.2 Gênero
 Arena Shooter / Action / Survival com controle por voz
 
-### 1.3 Plataforma
+### 2.3 Plataforma
 Web Browser (Desktop)
 
-### 1.4 Público-Alvo
+### 2.4 Público-Alvo
 - **Idade:** 12+ anos
 - **Requisitos:** Capacidade de fala em português brasileiro e controle de teclado/mouse
 - **Perfil:** Jogadores que buscam experiências inovadoras com interação por voz
 
-### 1.5 Resumo do Conceito
+### 2.5 Resumo do Conceito
 MageBonk é um jogo de ação em primeira pessoa onde o jogador controla um mago que lança feitiços através de comandos de voz. O objetivo é sobreviver a ondas de inimigos enquanto maximiza sua pontuação. Inspirado em **Mage Arena** (combate mágico em arena) e **Megabonk** (ação rápida com ataques ágeis).
 
-### 1.6 Unique Selling Points (USPs)
+### 2.6 Unique Selling Points (USPs)
 - **Conjuração por Voz:** Lance feitiços falando os nomes das magias
 - **Combate Dinâmico:** Inimigos com IA que perseguem e atacam o jogador
 - **Visual Imersivo:** Grama procedural com 500.000 lâminas animadas por shaders customizados
@@ -43,9 +52,9 @@ MageBonk é um jogo de ação em primeira pessoa onde o jogador controla um mago
 
 ---
 
-## 2. Conceito do Jogo
+## 3. Conceito do Jogo
 
-### 2.1 Referências
+### 3.1 Referências
 
 #### Megabonk
 Jogo de ação e plataforma com ataques rápidos (bonks) para derrotar inimigos. Foco em:
@@ -59,7 +68,7 @@ Arena-brawler mágico com ondas de inimigos e feitiços elementares. Caracterís
 - Gerenciamento de recursos (mana/cooldown)
 - Sobrevivência e aprimoramento entre rodadas
 
-### 2.2 Pilares de Design
+### 3.2 Pilares de Design
 
 | Pilar | Descrição |
 |-------|-----------|
@@ -68,7 +77,7 @@ Arena-brawler mágico com ondas de inimigos e feitiços elementares. Caracterís
 | **Sobrevivência** | Tensão crescente com ondas de inimigos cada vez mais difíceis |
 | **Simplicidade** | Curva de aprendizado suave, domínio progressivo |
 
-### 2.3 Fluxo de Jogo
+### 3.3 Fluxo de Jogo
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -85,9 +94,9 @@ Arena-brawler mágico com ondas de inimigos e feitiços elementares. Caracterís
 
 ---
 
-## 3. Mecânicas de Jogo
+## 4. Mecânicas de Jogo
 
-### 3.1 Movimentação do Jogador
+### 4.1 Movimentação do Jogador
 
 | Parâmetro | Valor | Descrição |
 |-----------|-------|-----------|
@@ -97,13 +106,13 @@ Arena-brawler mágico com ondas de inimigos e feitiços elementares. Caracterís
 | Altura do Jogador | 3.0 unidades | Nível dos olhos da câmera |
 | Raio de Colisão | 1.5 unidades | Detecção de colisão com barreiras |
 
-### 3.2 Sistema de Vida
+### 4.2 Sistema de Vida
 
 - **Vida Máxima:** 100 HP
 - **Barra de Vida:** Exibida no HUD em tempo real
 - **Morte:** Quando HP ≤ 0, fim de jogo
 
-### 3.3 Sistema de Pausa
+### 4.3 Sistema de Pausa
 
 O jogo pausa automaticamente quando:
 - Jogador pressiona **P** ou **ESC**
@@ -112,9 +121,9 @@ O jogo pausa automaticamente quando:
 
 ---
 
-## 4. Sistema de Feitiços
+## 5. Sistema de Feitiços
 
-### 4.1 Conjuração por Voz
+### 5.1 Conjuração por Voz
 
 O jogador lança feitiços falando seus nomes em português. O sistema utiliza a Web Speech API para reconhecimento de voz.
 
@@ -125,7 +134,7 @@ O jogador lança feitiços falando seus nomes em português. O sistema utiliza a
 4. Feitiço é disparado com feedback visual
 5. Cooldown é aplicado
 
-### 4.2 Lista de Feitiços
+### 5.2 Lista de Feitiços
 
 #### Fireball (Bola de Fogo)
 | Atributo | Valor |
@@ -172,7 +181,7 @@ O jogador lança feitiços falando seus nomes em português. O sistema utiliza a
 - Consome recurso/tempo de uso
 - Bom para controle de crowd
 
-### 4.3 Sistema Base de Feitiços
+### 5.3 Sistema Base de Feitiços
 
 Estrutura comum para todos os feitiços:
 - **Cooldown:** Tempo de recarga após uso
@@ -182,9 +191,9 @@ Estrutura comum para todos os feitiços:
 
 ---
 
-## 5. Sistema de Inimigos
+## 6. Sistema de Inimigos
 
-### 5.1 Estrutura Base
+### 6.1 Estrutura Base
 
 Todos os inimigos compartilham:
 - **Ciclo de Vida:** Spawn → Idle → Perseguir → Atacar → Morrer
@@ -192,7 +201,7 @@ Todos os inimigos compartilham:
 - **Interface de Dano:** Receber dano e knockback
 - **Registro Global:** Lista de inimigos ativos no mundo
 
-### 5.2 Estados de IA
+### 6.2 Estados de IA
 
 ```
 ┌─────────┐    Player próximo    ┌──────────────┐
@@ -215,14 +224,14 @@ Todos os inimigos compartilham:
          └──────────────┘
 ```
 
-### 5.3 Detecção do Player
+### 6.3 Detecção do Player
 
 - **Detecção por Distância:** Raio de percepção configurável
 - **Campo de Visão:** (Opcional) Cone de visão frontal
 - **Eventos:** `playerEncontrado`, `playerPerdido`
 - **Otimização:** Atualizações escalonadas (não todo frame)
 
-### 5.4 Sistema de Dano e Knockback
+### 6.4 Sistema de Dano e Knockback
 
 ```javascript
 // Exemplo de interface
@@ -237,9 +246,9 @@ inimigo.sofrerKnockback(força, direção)  // Aplica impulso
 
 ---
 
-## 6. Controles
+## 7. Controles
 
-### 6.1 Teclado
+### 7.1 Teclado
 
 | Tecla | Ação |
 |-------|------|
@@ -252,7 +261,7 @@ inimigo.sofrerKnockback(força, direção)  // Aplica impulso
 | P | Pausar/Despausar jogo |
 | ESC | Liberar mouse / Pausar |
 
-### 6.2 Mouse
+### 7.2 Mouse
 
 | Ação | Função |
 |------|--------|
@@ -260,7 +269,7 @@ inimigo.sofrerKnockback(força, direção)  // Aplica impulso
 | Sensibilidade | Configurável (1-10, padrão: 5) |
 | Inversão Y | Opcional nas configurações |
 
-### 6.3 Voz
+### 7.3 Voz
 
 | Comando | Efeito |
 |---------|--------|
@@ -270,9 +279,9 @@ inimigo.sofrerKnockback(força, direção)  // Aplica impulso
 
 ---
 
-## 7. Interface do Usuário
+## 8. Interface do Usuário
 
-### 7.1 HUD (Heads-Up Display)
+### 8.1 HUD (Heads-Up Display)
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -294,17 +303,17 @@ inimigo.sofrerKnockback(força, direção)  // Aplica impulso
 - Indicador de voz (quando ativo)
 - Painel de informações de controles
 
-### 7.2 Menu Principal
+### 8.2 Menu Principal
 
 - **Novo Jogo:** Inicia partida
 - **Configurações:** Abre menu de opções
 - **Efeito de Partículas:** Background animado
 
-### 7.3 Menu de Pausa
+### 8.3 Menu de Pausa
 
 Acessível durante gameplay com overlay semi-transparente.
 
-### 7.4 Configurações
+### 8.4 Configurações
 
 #### Áudio
 | Opção | Descrição |
@@ -329,12 +338,12 @@ Acessível durante gameplay com overlay semi-transparente.
 
 ---
 
-## 8. Arte e Estilo Visual
+## 9. Arte e Estilo Visual
 
-### 8.1 Direção de Arte
+### 9.1 Direção de Arte
 Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 
-### 8.2 Ambiente
+### 9.2 Ambiente
 
 | Elemento | Descrição |
 |----------|-----------|
@@ -344,7 +353,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 | Névoa | Fade de 500-1000 unidades |
 | Iluminação | Ambiente + Direcional com sombras |
 
-### 8.3 Grama Procedural
+### 9.3 Grama Procedural
 
 **Especificações:**
 - 500.000 lâminas de grama
@@ -352,7 +361,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 - Efeito de achatamento ao caminhar
 - Gradiente de cores (base escura → ponta clara)
 
-### 8.4 Efeitos Visuais (Planejados)
+### 9.4 Efeitos Visuais (Planejados)
 
 - Partículas de fogo para Fireball
 - Ondas de distorção para Push Wave
@@ -361,16 +370,16 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 
 ---
 
-## 9. Áudio
+## 10. Áudio
 
-### 9.1 Efeitos Sonoros
+### 10.1 Efeitos Sonoros
 
 | Som | Arquivo | Uso |
 |-----|---------|-----|
 | Passos | `walking-on-grass.mp3` | Caminhada (400ms intervalo) |
 | Aterrissagem | `jump-fall.mp3` | Após pulo |
 
-### 9.2 Sons Planejados
+### 10.2 Sons Planejados
 
 - Conjuração de feitiços
 - Impacto de feitiços
@@ -378,7 +387,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 - Morte de inimigos
 - Música de fundo
 
-### 9.3 Sistema de Áudio
+### 10.3 Sistema de Áudio
 
 - Three.js AudioListener para áudio posicional
 - Carregamento assíncrono com Promises
@@ -386,9 +395,9 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 
 ---
 
-## 10. Especificações Técnicas
+## 11. Especificações Técnicas
 
-### 10.1 Stack Tecnológico
+### 11.1 Stack Tecnológico
 
 | Tecnologia | Versão | Uso |
 |------------|--------|-----|
@@ -397,7 +406,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 | Tailwind CSS | 4.1.17 | Estilização |
 | Web Speech API | - | Reconhecimento de voz |
 
-### 10.2 Requisitos do Sistema
+### 11.2 Requisitos do Sistema
 
 **Mínimos:**
 - Browser moderno (Chrome recomendado para voz)
@@ -405,7 +414,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 - Microfone (para comandos de voz)
 - Teclado e Mouse
 
-### 10.3 Parâmetros do Jogo
+### 11.3 Parâmetros do Jogo
 
 | Parâmetro | Valor |
 |-----------|-------|
@@ -414,7 +423,7 @@ Estilo low-poly estilizado com elementos mágicos e cores vibrantes.
 | Shadow Map | 2048x2048 |
 | Target FPS | 60 |
 
-### 10.4 Arquitetura
+### 11.4 Arquitetura
 
 ```
 src/
@@ -434,9 +443,9 @@ src/
 
 ---
 
-## 11. Roadmap de Desenvolvimento
+## 12. Roadmap de Desenvolvimento
 
-### 11.1 Fase Atual: Core Gameplay ✅
+### 12.1 Fase Atual: Core Gameplay ✅
 
 - [x] Sistema de movimentação FPS
 - [x] Sistema de pulo e gravidade
@@ -448,57 +457,57 @@ src/
 - [x] Grama procedural com shaders
 - [x] Sistema de pausa
 
-### 11.2 Em Desenvolvimento: Sistemas de Combate
+### 12.2 Em Desenvolvimento: Sistemas de Combate
 
 #### Sistema de Feitiços ([#3](https://github.com/pedrovian4/magebonk/issues/3), [#4](https://github.com/pedrovian4/magebonk/issues/4))
-- [ ] Estrutura base para feitiços
-- [ ] Conjuração por voz funcional
-- [ ] Feedback visual de reconhecimento
+- [x] Estrutura base para feitiços
+- [x] Conjuração por voz funcional
+- [x] Feedback visual de reconhecimento
 
 #### Fireball ([#5](https://github.com/pedrovian4/magebonk/issues/5))
-- [ ] Visual da bola de fogo
-- [ ] Movimento até colisão
-- [ ] Explosão ao impacto
-- [ ] Dano e knockback
+- [x] Visual da bola de fogo
+- [x] Movimento até colisão
+- [x] Explosão ao impacto
+- [x] Dano e knockback
 
 #### Push Wave ([#6](https://github.com/pedrovian4/magebonk/issues/6))
-- [ ] Área circular no jogador
-- [ ] Empurrão proporcional
-- [ ] Feedback visual
+- [x] Área circular no jogador
+- [x] Empurrão proporcional
+- [x] Feedback visual
 
 #### Water Jet ([#7](https://github.com/pedrovian4/magebonk/issues/7))
-- [ ] Fluxo contínuo
-- [ ] Empurrão constante
-- [ ] Balanceamento de recurso
+- [x] Fluxo contínuo
+- [x] Empurrão constante
+- [x] Balanceamento de recurso
 
-### 11.3 Próxima Fase: Sistema de Inimigos
+### 12.3 Próxima Fase: Sistema de Inimigos
 
 #### Base de Inimigos ([#8](https://github.com/pedrovian4/magebonk/issues/8))
-- [ ] Estrutura padrão de inimigo
-- [ ] Ciclo de vida (spawn → morte)
-- [ ] Parâmetros configuráveis
-- [ ] Registro de inimigos ativos
+- [x] Estrutura padrão de inimigo
+- [x] Ciclo de vida (spawn → morte)
+- [x] Parâmetros configuráveis
+- [x] Registro de inimigos ativos
 
 #### IA e Comportamento ([#9](https://github.com/pedrovian4/magebonk/issues/9))
-- [ ] Estados: Idle, Perseguindo, Atacando, Atordoado, Morto
-- [ ] Transições lógicas
+- [x] Estados: Idle, Perseguindo, Atacando, Atordoado, Morto
+- [x] Transições lógicas
 
 #### Dano e Knockback ([#10](https://github.com/pedrovian4/magebonk/issues/10))
-- [ ] Função `levarDano(valor)`
-- [ ] Função `sofrerKnockback(força, direção)`
-- [ ] Morte quando vida ≤ 0
-- [ ] Feedback visual
+- [x] Função `levarDano(valor)`
+- [x] Função `sofrerKnockback(força, direção)`
+- [x] Morte quando vida ≤ 0
+- [x] Feedback visual
 
 #### Detecção do Player ([#11](https://github.com/pedrovian4/magebonk/issues/11))
-- [ ] Detecção por distância
-- [ ] Campo de visão opcional
-- [ ] Eventos de encontro/perda
+- [x] Detecção por distância
+- [x] Campo de visão opcional
+- [x] Eventos de encontro/perda
 
-### 11.4 Melhorias de UI
+### 12.4 Melhorias de UI
 
 #### Menu de Pause ([#1](https://github.com/pedrovian4/magebonk/issues/1))
-- [ ] Menu aparece ao sair do jogo
-- [ ] Opções de continuar/sair
+- [x] Menu aparece ao sair do jogo
+- [x] Opções de continuar/sair
 
 ---
 
